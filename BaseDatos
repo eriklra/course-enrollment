@@ -1,0 +1,100 @@
+create database inscripciones;
+use inscripciones;
+
+CREATE TABLE materia(
+    id_materia INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(128) NOT NULL,
+    estado VARCHAR (64) NOT NULL,
+    cupo_maximo INT NOT NULL,
+    cupo INT NOT NULL
+);
+
+CREATE TABLE usuario(
+    id_usuario INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(128) NOT NULL,
+    contrasena VARCHAR(128) NOT NULL,
+    semestre INT NOT NULL,
+    inscritas INT NOT NULL,
+    tipo INT NOT NULL
+);
+
+CREATE TABLE inscripcion(
+    id_inscripcion INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    id_materia INT NOT NULL,
+    id_usuario INT NOT NULL,
+    FOREIGN KEY(id_materia) REFERENCES materia(id_materia),
+    FOREIGN KEY(id_usuario) REFERENCES usuario(id_usuario)
+);
+
+INSERT INTO materia (nombre, cupo_maximo, cupo)
+VALUES ('CALCULO', 5, 0);
+
+INSERT INTO materia (nombre, cupo_maximo, cupo)
+VALUES ('PROGRAMACION', 5, 0);
+
+INSERT INTO materia (nombre, cupo_maximo, cupo)
+VALUES ('REDES', 5, 0);
+
+INSERT INTO materia (nombre, cupo_maximo, cupo)
+VALUES ('CIRCUITOS', 5, 0);
+
+INSERT INTO materia (nombre, cupo_maximo, cupo)
+VALUES ('MATEMATICAS', 5, 0);
+
+INSERT INTO materia (nombre, cupo_maximo, cupo)
+VALUES ('MINERIA', 5, 0);
+
+
+//alumnos primer semestre
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('ALEXIS', '123', 1, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('AMERICA', '123', 1, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('YAIR', '123', 1, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('SANTIAGO', '123', 1, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('ERIK', '123', 1, 0, 0);
+
+//alumnos segundo semestre
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('JULIO', '456', 2, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('OLIVER', '456', 2, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('OSCAR', '456', 2, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('ALEJANDRA', '456', 2, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('NAYELI', '456', 2, 0, 0);
+
+//alumnos tercer semestre
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('LILIA', '789', 3, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('IVAN', '789', 3, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('ROBERTO', '789', 3, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('JOSE', '789', 3, 0, 0);
+
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('ALMA', '789', 3, 0, 0);
+
+//admin
+INSERT INTO usuario (nombre, contrasena, semestre, inscritas, tipo)
+VALUES ('ADMIN', '000', 0, 0, 1);
